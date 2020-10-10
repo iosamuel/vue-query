@@ -7,5 +7,5 @@
     "noEmit": false
   },
   "files": ["./src/index.ts"],
-  "exclude": ["./src/**/*"]
+  "exclude": ["./src/**/*", "./test/**/*"]
 }

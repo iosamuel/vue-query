@@ -1,39 +1,7 @@
 {
-  "name": "vue-query",
-  "version": "0.0.1",
-  "description": "Hooks for managing, caching and syncing asynchronous and remote data in Vuejs",
   "author": "tannerlinsley",
-  "license": "MIT",
-  "repository": "tannerlinsley/vue-query",
-  "homepage": "https://github.com/tannerlinsley/vue-query#readme",
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/tannerlinsley"
-  },
-  "main": "dist/vue-query.umd-production.min.js",
-  "unpkg": "dist/vue-query.esm-development.js",
-  "types": "types/index.d.ts",
-  "module": "dist/vue-query.esm-production.min.js",
-  "sideEffects": [],
-  "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "build:types": "tsc --project ./tsconfig.types.json",
-    "test:eslint": "eslint --ext .ts ./src",
-    "serve": "cross-env NODE_ENV=development vite serve"
-  },
-  "release": {
-    "branches": [
-      "1.x",
-      "master",
-      "beta"
-    ]
-  },
-  "files": [],
   "dependencies": {},
-  "peerDependencies": {
-    "vue": "^3.0.0-rc.13"
-  },
-  "peerDependenciesMeta": {},
+  "description": "Hooks for managing, caching and syncing asynchronous and remote data in Vuejs",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
@@ -66,5 +34,39 @@
     "typescript": "^3.9.5",
     "vite": "^1.0.0-rc.4",
     "vue": "^3.0.0-rc.13"
-  }
+  },
+  "engines": {
+    "npm": "use yarn instead of npm."
+  },
+  "files": [],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/tannerlinsley"
+  },
+  "homepage": "https://github.com/tannerlinsley/vue-query#readme",
+  "license": "MIT",
+  "main": "dist/vue-query.umd-production.min.js",
+  "module": "dist/vue-query.esm-production.min.js",
+  "name": "vue-query",
+  "peerDependencies": {
+    "vue": "^3.0.0-rc.13"
+  },
+  "peerDependenciesMeta": {},
+  "release": {
+    "branches": ["1.x", "master", "beta"]
+  },
+  "repository": "tannerlinsley/vue-query",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "build:types": "tsc --project ./tsconfig.types.json",
+    "serve": "cross-env NODE_ENV=development vite serve",
+    "test": "yarn build && yarn build:types && yarn test:eslint",
+    "test:dev": "yarn test:types && yarn test:eslint && jest --watch",
+    "test:eslint": "eslint --ext .ts ./src",
+    "test:types": "tsc --b ./tsconfig.types.json --dry --force"
+  },
+  "sideEffects": [],
+  "types": "types/index.d.ts",
+  "unpkg": "dist/vue-query.esm-development.js",
+  "version": "0.0.1"
 }

@@ -24,9 +24,9 @@
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["esnext", "dom"],
     "paths": {
-      "@/*": ["src/*"],
       "test/*": ["test/*"],
-      "@vue-query/*": ["src/*"]
+      "@vue-query/*": ["src/*"],
+      "/@vue-query/*": ["src/*"]
     },
     "types": ["jest"]
   },

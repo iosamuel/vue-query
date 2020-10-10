@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { useQueryClient } from '/@vue-query/vue/QueryClientProvider'
+import { useQueryClient } from '/@vue-query/vue'
 export default {
   name: 'HelloWorld',
   props: {
