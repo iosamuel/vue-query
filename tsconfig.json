@@ -22,24 +22,14 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["src/*"],
-      "test/*": ["test/*"]
+      "test/*": ["test/*"],
+      "@vue-query/*": ["src/*"]
     },
-    "types": [
-      "jest"
-    ]
+    "types": ["jest"]
   },
-  "include": [
-    "src",
-    "test"
-  ],
-  "exclude": [
-    "node_modules",
-    "temp"
-  ]
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "temp"]
 }

@@ -1,31 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <QueryClientProvider :client="client">
+    <HelloWorld />
+  </QueryClientProvider>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { QueryCache, QueryClient } from '/@vue-query/index'
+import { QueryClientProvider } from '/@vue-query/vue/QueryClientProvider'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {},
-  data() {
+  components: {
+    QueryClientProvider,
+    HelloWorld,
+  },
+  setup() {
+    const cache = new QueryCache()
+    const client = new QueryClient({ cache })
+
     return {
-      count: 0
+      client,
     }
   },
-  setup(_props, _ctx) {
-    const showAlert = ref(true);
-
-    const log = (event: boolean) => showAlert.value = event;
-    const handleAlertVisibility = (_event: any) => {
-      showAlert.value = !showAlert.value;
-    }
-
-    return {
-      log,
-      showAlert,
-      handleAlertVisibility
-    }
-  }
 }
 </script>

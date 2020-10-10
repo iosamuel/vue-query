@@ -3,14 +3,12 @@ import {
   inject,
   onMounted,
   onUnmounted,
-  toRefs,
-  readonly,
   defineComponent,
   h,
   Fragment,
 } from 'vue'
 
-import { QueryClient } from '../core'
+import { QueryClient, Query } from '../core'
 
 const QueryClientSymbol = Symbol('Query provider identifier')
 
@@ -20,7 +18,7 @@ export const useQueryClient = (): QueryClient | undefined =>
 
 /* Vue Composable - Provide */
 export const useQueryClientProvider = (client: QueryClient): void => {
-  provide(QueryClientSymbol, toRefs(readonly(client)))
+  provide(QueryClientSymbol, client)
 
   onMounted(() => {
     client.mount()
@@ -32,10 +30,16 @@ export const useQueryClientProvider = (client: QueryClient): void => {
 }
 
 /* Vue Component */
-export const QueryClientProvider = defineComponent(
-  (props: { client: QueryClient }, { slots }) => {
+export const QueryClientProvider = defineComponent({
+  props: {
+    client: {
+      type: QueryClient,
+      required: true,
+    },
+  },
+  setup(props, { slots }) {
     useQueryClientProvider(props.client)
 
-    return () => h(Fragment, slots.default)
-  }
-)
+    return () => h(Fragment, slots.default?.())
+  },
+})
