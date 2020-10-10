@@ -8,7 +8,7 @@ import {
   Fragment,
 } from 'vue'
 
-import { QueryClient, Query } from '../core'
+import { QueryClient } from '../core'
 
 const QueryClientSymbol = Symbol('Query provider identifier')
 
