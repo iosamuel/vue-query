@@ -1,12 +1,16 @@
 <template>
-  <QueryClientProvider :client="client">
-    <HelloWorld />
-  </QueryClientProvider>
+  <div>
+    <QueryClientProvider :client="client">
+      <QueryErrorResetBoundary>
+        <HelloWorld />
+      </QueryErrorResetBoundary>
+    </QueryClientProvider>
+  </div>
 </template>
 
 <script lang="ts">
 import { QueryCache, QueryClient } from '/@vue-query/index'
-import { QueryClientProvider } from '/@vue-query/vue'
+import { QueryClientProvider, QueryErrorResetBoundary } from '/@vue-query/vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -14,6 +18,7 @@ export default {
   components: {
     QueryClientProvider,
     HelloWorld,
+    QueryErrorResetBoundary
   },
   setup() {
     const cache = new QueryCache()
