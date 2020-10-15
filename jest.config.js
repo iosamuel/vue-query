@@ -14,4 +14,8 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['json', 'lcov', 'text-summary', 'clover'],
   collectCoverageFrom: ['src/**/*.ts', '!src/index.cjs.ts'],
+  modulePathIgnorePatterns: [
+    "<rootDir>/src/core",
+    "<rootDir>/src/hydration",
+  ]
 };

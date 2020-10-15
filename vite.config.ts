@@ -1,14 +1,12 @@
-import { resolve, join } from 'path';
-
-const rootDir = resolve(__dirname);
+import { resolve } from 'path'
 
 module.exports = {
   alias: {
-    '/@vue-query/*/': join(rootDir, 'src'),
-    '/@app/*/': join(rootDir, 'app')
+    '/@vue-query/': resolve(__dirname, 'src'),
+    '/@app/': resolve(__dirname, 'app'),
   },
-  root: join(rootDir, 'example'),
-  base: ''
+  root: resolve(__dirname, 'example'),
+  base: '',
   /*assetsDir: '',
   emitAssets: true,
   emitIndex: false,
@@ -30,4 +28,4 @@ module.exports = {
     sourcemap: true
   },
   write: true*/
-};
+}
