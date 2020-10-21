@@ -46,7 +46,6 @@ export function useQuery<TResult, TError>(
   const results = ref()
 
   const resolvedConfig = parseQueryArgs(arg1, arg2, arg3)
-  console.log(resolvedConfig)
 
   const cache = new QueryCache()
   const client = new QueryClient({ cache })
@@ -56,9 +55,10 @@ export function useQuery<TResult, TError>(
     options: resolvedConfig,
   })
 
+  const query = observer.getCurrentQuery()
+
   const queryKeys = getQueryKeysRef(resolvedConfig.queryKey)
   watch(queryKeys, () => {
-    const query = observer.getCurrentQuery()
     query.fetch()
   })
 
