@@ -13,6 +13,7 @@ export default {
   components: {
     QueryClientProvider,
     HelloWorld,
+    QueryErrorResetBoundary
   },
   setup() {
     const page = ref(1)

@@ -7,10 +7,15 @@
   </p>
   <hr />
   <pre>{{ client }}</pre>
+  <hr>
+  <button @click="reset">Reset</button>
+  <button @click="clearReset">Clear Reset</button>
+  <pre>{{isReseted}}</pre>
 </template>
 
 <script>
-import { useQueryClient } from '/@vue-query/vue'
+import { computed } from 'vue'
+import { useQueryClient, useQueryErrorResetBoundary } from '/@vue-query/vue'
 export default {
   name: 'HelloWorld',
   props: {
@@ -23,9 +28,13 @@ export default {
   },
   setup() {
     const client = useQueryClient()
+    const { isReseted, reset, clearReset } = useQueryErrorResetBoundary()
 
     return {
       client,
+      isReseted,
+      reset,
+      clearReset
     }
   },
 }
