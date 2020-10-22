@@ -3,26 +3,19 @@
 </template>
 
 <script lang="ts">
-import { QueryClientProvider } from '/@vue-query/vue'
-import HelloWorld from './components/HelloWorld.vue'
 import { ref } from 'vue'
 import { useQuery } from '/@vue-query/vue/useQuery'
 
 export default {
   name: 'App',
-  components: {
-    QueryClientProvider,
-    HelloWorld,
-    QueryErrorResetBoundary
-  },
   setup() {
     const page = ref(1)
 
-    const { results } = useQuery(['issues', page], () => {
-      return fetch(
+    const { results } = useQuery(['issues', page], () =>
+      fetch(
         `https://api.github.com/search/issues?q=vue&page=${page.value}&per_page=1`
       ).then(res => res.json())
-    })
+    )
 
     setTimeout(() => {
       page.value += 1
